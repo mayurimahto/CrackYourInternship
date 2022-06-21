@@ -13,3 +13,25 @@ public:
         return ans;
     }
 };
+
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        // Hashmap
+        int ans=0;
+        map<int, int>memo;
+        for(int i=0; i<nums.size(); i++){
+            memo[nums[i]]++;
+        }
+        
+        for(auto j:memo){
+            if(j.second>1)
+            {
+                ans = j.first;
+                break;
+            }
+        }
+        return ans;
+    }
+};
